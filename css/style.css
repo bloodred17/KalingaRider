@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+.header {
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgba(0, 214, 230, 0.1), rgba(0, 238, 255, 0.9)), url(resources/bike-mountain.jpg);
+    background-position: top;
+    background-size: cover;
+    position: relative;
+}
+.header__text {
+    color: white;
+    position: absolute;
+    right: 5rem;
+    top: 3rem;
+    font-size: 1rem;
+}
+.header__text h1{
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 400;
+    font-size: 10rem;   
+    margin: 1rem 5rem 1rem auto; 
+    animation: moveInTop 3s;
+}
+
+.header__text p {
+    transform: translate(-1em,-0.5em);
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 5rem;
+    text-align: right;
+    animation: moto 4s;
+}
+
+.header__buttons {
+    /* border: 2px solid black; */
+    position: absolute;
+    bottom: 5rem;
+    right: 20rem;
+}
+
+.header__buttons a {
+    color: white;
+    text-decoration: none;
+    font-family:  'Nanum Gothic', sans-serif;
+    font-size: 3.5rem;
+    margin: 3rem;
+}
+
+.btn:link,
+.btn:visited {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 200px;
+    position: relative;
+    transition: all .2s;
+    /* SFX */
+    border: 2px solid white;
+    animation: btnBorderAnimation 1.2s;
+}
+
+.btn--animation:hover {
+    color: lightseagreen;
+    background-color: white;
+    
+    /* SFX */
+    transform: translateY(-.3rem);
+    box-shadow: 0px .5rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+.btn--animation:active {
+    color: lightseagreen;
+    background-color: white;
+    
+    /* SFX */
+    transform: translateY(-.1rem);
+    box-shadow: 0px .1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+/* ------ GALLERY ------ */
+
+
+/* ANIMATIONS */
+@keyframes moto {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+    80% {
+        transform: translateY(-.3rem);
+    }
+    95% {
+        transform: translateY(.1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes topDown {
+    0% {
+        opacity: 0;
+        transform: translateY(6rem);
+    }
+    /* 50% {
+        transform: translateY(-.3rem);
+    } */
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+}
+
+@keyframes btnBorderAnimation {
+    0% {
+        transform: translateX(5rem);
+    }
+    45% {
+        border: 0;
+    }
+    50% {
+        border-top: 2px solid white;
+    }
+    75% {
+        border-left: 2px solid white;
+    }
+    80% {
+        border-bottom: 2px solid white;
+    }
+    100% {
+        border: 2px solid white;
+        transform: translateX(0);
+    }
+}
+
+/* Rides */
+.rides{
+    background-color: whitesmoke;
+    height: 100vh;
+}
+
+.section__text{
+    font-family: 'Nothing You Could Do', cursive;
+    font-weight: 400;
+    font-size: 5rem;   
+    /* border: 2px solid red; */
+    color: rgb(20, 195, 207);
+    display: inline-block;
+    margin: 4rem 20rem;
+}
+
+/* Cards */
+
+.available{
+    margin-left: 5rem;
+    margin-bottom: 4rem;
+}
+
+.ride-images {
+    width:35rem;
+    height:20rem;
+}
+
+.flip-card {
+    display: inline-block;
+    background-color: transparent;
+    width: 35rem;
+    height: 20rem;
+    border: 2px solid dodgerblue;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin: 1rem 3rem;
+  }
+  
+  /* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg); 
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back > * {
+    margin: 1rem 1rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.flip-card-back > h1 {
+    font-size: 5rem;
+}
+.flip-card-back > p {
+    font-size: 3rem;
+}
+.booking{
+    display: inline-block;
+    position: absolute;
+    border-radius: .4rem;
+    background-color: white;
+    border: none;
+    color: rgb(20, 195, 207);
+    border: 2px solid rgb(20, 195, 207);
+    text-align: center;
+    font-size: 2.8rem;
+    padding: 2rem;
+    width: 25rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: .5rem;
+    margin-left: 3rem;
+    height: 20rem;
+    width: 35rem;
+    font-size: 4rem;
+}
+
+.booking span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.booking span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.booking:hover,.booking:hover span {
+    padding-right: 25px;
+    padding-left: 25px;
+    background-color: dodgerblue;
+    color: white;
+}
+  
+.booking:hover span:after {
+opacity: 1;
+right: 0;
+}
+
+  /* ABOUT US */
+.about-us{
+    height: 100vh;
+}
+.content, .contact{
+    margin: 3rem 20rem 3rem 20rem;
+}
+.content {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    text-align: justify;
+}
+.about-us p {
+    font-size: 3rem;
+    margin-top: 2rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.content p{
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+}
+.contact {
+    margin-top: 5rem;
+}
+
+.contact img{
+    width: 20rem;
+    height: 20rem;
+    display: inline-block;
+    float: right;
+    margin-top: -6.6rem;
+    margin-right: 9rem;
+    border:3px solid rgb(20, 195, 207);
+    border-radius: 10rem;
+    border-style: dashed;
+}
+
+.blue-bar{
+    border: 2px solid rgb(20, 195, 207);
+    border-radius: 10px;
+    width: 15rem;
+    margin-left: 17rem;
+    margin-bottom: 5rem;
+}
+
+.bar2{
+    display: inline-block;
+}
+.arrow-nav{
+    position: relative;
+}
+.up-arrow{
+    bottom: 20rem;
+    right: 7rem;
+    position: absolute;
+    border-radius: 200px;
+    border: 2px solid rgb(20, 195, 207);
+    color: rgb(20, 195, 207);
+    background-color: white;
+    padding: 2rem;
+    animation: topDown 2s infinite;
+    animation-timing-function: ease-in;
+}
+.up-arrow span{
+    font-size: 2rem;  
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 980px) {
+    html{
+        font-size: 13px;
+    }
+    .header__text h1{
+        text-shadow: 1px .5rem 1rem aqua;
+    }
+    .header__text p{
+        text-shadow: 1px .5rem 1rem black;
+    }
+    .header__buttons{
+        position: absolute;
+        bottom: 9rem;
+        transform: translate(-1rem, -5rem);
+    }
+    
+    .header__buttons a {
+        text-decoration: none;
+        font-size: 4rem;
+        margin: 3rem;
+        color: lightseagreen;
+    }
+    .btn--animation{
+        background-color: white;
+    
+        /* SFX */
+        box-shadow: 0px .5rem 2rem rgba(0, 0, 0, 0.4);
+    }
+    .section__text{
+        font-size: 3rem;
+        text-align: center;
+        margin: 3rem 15rem 2rem 15rem;
+    }
+
+    .ride-images{
+        width: 27rem;
+    }
+    .flip-card{
+        width: 27rem;
+    }
+    .flip-card-back > h1{
+        font-size: 4rem;
+    }
+    .flip-card-back > p{
+        font-size: 2rem;
+    }
+    .booking{
+        width: 27rem;
+    }
+    .blue-bar{
+        margin: -2rem 10rem 1rem 10rem;
+    }
+    
+    .contact img{
+        display: inline-block;
+        margin: 3.5rem 10rem;
+    }
+    .content{
+        margin-top: 2rem;
+    }
+    .content p {
+        margin-bottom: 2rem;
+    }
+}
